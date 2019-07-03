@@ -1,0 +1,46 @@
+{
+  "name": "react-app1",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/history": "^4.7.2",
+    "@types/jest": "24.0.12",
+    "@types/lodash": "^4.14.129",
+    "@types/node": "12.0.0",
+    "@types/react": "16.8.17",
+    "@types/react-dom": "16.8.4",
+    "history": "^4.9.0",
+    "mobx": "^5.9.4",
+    "mobx-react": "^5.4.3",
+    "mobx-state-router": "^4.0.5",
+    "oidc-client": "^1.8.2",
+    "path-to-regexp": "^3.0.0",
+    "query-string": "^6.5.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "typescript": "3.4.5"
+  },
+  "scripts": {
+    "start": "react-scripts start ",
+    "build": "set INLINE_RUNTIME_CHUNK=true && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "serve": "serve -l 80 build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
