@@ -1,13 +1,8 @@
 import React, { useEffect } from "react";
 import { AppContext } from "../../AppContext";
 
-export const DepartmentPage: React.FC = () => {
+export const CallbackPage: React.FC = () => {
   const { routerStore, authStore } = React.useContext(AppContext);
-  const { params } = routerStore.routerState;
-
-  const handleClick = () => {
-    routerStore.goTo('home');
-  };
 
   useEffect(() => {
     //authStore

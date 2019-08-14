@@ -5,9 +5,12 @@ import { RootStore } from './stores/RootStore';
 import { DepartmentPage } from './features/department/DepartmentPage';
 import { HomePage } from './features/home/HomePage';
 import { NotFoundPage } from './features/NotFoundPage';
+import { CallbackPage } from './features/callback/CallbackPage';
 import { AppContext } from './AppContext';
 
 import './App.css';
+import { SigninPage } from './features/SigninPage';
+import { ServiceUnavailablePage } from './features/ServiceUnavailablePage';
 
 const historyAdapter = new HistoryAdapter(RootStore.routerStore, history);
 historyAdapter.observeRouterStateChanges();
@@ -33,16 +36,40 @@ const App: React.FC = () => {
       authStore.userManager.events.removeUserUnloaded(authStore.onUserUnloaded);
       authStore.userManager.events.removeUserSignedOut(authStore.onUserSignedOut);
       }
-  }, []);
+  });
 
   const viewMap : ViewMap = {
     department: <DepartmentPage />,
     home: <HomePage />,
-    notFound: <NotFoundPage />
+    notFound: <NotFoundPage />,
+    signin: <SigninPage />,
+    serviceUnavailable: <ServiceUnavailablePage />,
+    callback: <CallbackPage />
   };
 
+  const handleSignOut = ()=> {
+    authStore.SignOut();
+  }
+
+  const renderTopBar = () : JSX.Element => {
+    if (authStore.is_authenticated){
+      return(
+        <div className={"topBar"}>
+          <button onClick={handleSignOut}>Sign Out</button>
+        </div>);
+    }
+    else {
+      return <noscript/>
+    }
+  }
+
+  authStore.loadUser();
+  
   return (
+    <> 
+      {renderTopBar()}
       <RouterView routerStore={routerStore} viewMap={viewMap} />
+    </>
   );
 }
 

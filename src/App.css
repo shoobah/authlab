@@ -1,3 +1,13 @@
+.topBar {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #333333;
+  color: #919191;
+  height: 54px;
+}
+
 .App {
   text-align: center;
 }
