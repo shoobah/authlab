@@ -3,11 +3,12 @@ import Oidc from "oidc-client";
 import { IUser } from "../shared/types";
 
 const config = {
-  authority: "http://localhost:5000",
-  client_id: "rtc",
+  //authority: "http://localhost:5000",
+  authority: "https://demo.identityserver.io",
+  client_id: "spa",
   redirect_uri: "http://localhost:5003/signin-callback.html",
   response_type: "code",
-  scope: "openid profile api1",
+  scope: "openid profile email api",
   post_logout_redirect_uri: "http://localhost:5003/index.html",
   loadUserInfo: true
 };
@@ -24,7 +25,7 @@ export class AuthStore {
 
   @action
   public loadUser = () => {
-    return this.userManager.getUser()    
+    return this.userManager.getUser()
       .then((oidcUser) => {
         if (!oidcUser || oidcUser.expired) {
           return this.SignIn();

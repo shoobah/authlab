@@ -52,7 +52,7 @@ const App: React.FC = () => {
   }
 
   const renderTopBar = () : JSX.Element => {
-    if (authStore.is_authenticated){
+    if (true){
       return(
         <div className={"topBar"}>
           <button onClick={handleSignOut}>Sign Out</button>
@@ -63,7 +63,7 @@ const App: React.FC = () => {
     }
   }
 
-  authStore.loadUser();
+  //authStore.loadUser();
   
   return (
     <> 

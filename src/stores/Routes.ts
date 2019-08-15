@@ -1,4 +1,6 @@
 import { Route, RouterStore, RouterState } from "mobx-state-router";
+// import { AppContext } from "../AppContext";
+// import React from "react";
 
 const checkForUserSignedIn = (
   fromState: RouterState,
@@ -9,6 +11,9 @@ const checkForUserSignedIn = (
     rootStore: { authStore }
   } = routerStore;
 
+  debugger
+
+  //const {authStore} = React.useContext(AppContext);
   // return authStore.userManager.getUser().then(function(user: any) {
   return authStore.loadUser().then( () => {
 
